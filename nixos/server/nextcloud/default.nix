@@ -7,6 +7,16 @@
 
   databaseName = "nextcloud";
 in {
+  imports = [
+    ./onlyoffice.nix
+  ];
+
+  age.secrets.nextcloud-secret-file = {
+    rekeyFile = ./nextcloud-secret-file.age;
+    owner = "nextcloud";
+    group = "nextcloud";
+  };
+
   users.users.caddy.extraGroups = ["nextcloud"];
 
   services = {
@@ -96,9 +106,19 @@ in {
       datadir = "/tank/nextcloud";
       autoUpdateApps.enable = true;
       appstoreEnable = true;
+      extraApps = {
+        inherit
+          (config.services.nextcloud.package.packages.apps)
+          contacts
+          calendar
+          tasks
+          ;
+      };
 
       # https://docs.nextcloud.com/server/27/admin_manual/configuration_files/files_locking_transactional.html
       configureRedis = true;
+
+      secretFile = config.age.secrets.nextcloud-secret-file.path;
 
       config = {
         adminpassFile = "/var/nextcloud_admin_pass";

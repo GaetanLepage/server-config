@@ -35,8 +35,7 @@
     ./hedgedoc.nix
     ./inria.nix
     ./invidious.nix
-    ./nextcloud.nix
-    ./onlyoffice.nix
+    ./nextcloud
     ./vaultwarden
     ./wireguard
   ];
