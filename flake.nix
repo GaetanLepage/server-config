@@ -91,15 +91,15 @@
             {
               name = "deploy";
               command = ''
-                 hostname=$1
+                hostname=$1
 
                 echo -e "\n=> Updating '$hostname' system"
-                 nixos-rebuild switch \
-                   --verbose \
-                   --fast \
-                   --flake .#"$hostname" \
-                   --target-host root@"$hostname" \
-                   --build-host root@"$hostname"
+                nixos-rebuild switch \
+                  --verbose \
+                  --fast \
+                  --flake .#"$hostname" \
+                  --target-host root@"$hostname" \
+                  --build-host root@"$hostname"
               '';
             }
             {
