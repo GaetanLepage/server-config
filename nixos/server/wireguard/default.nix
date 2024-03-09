@@ -83,7 +83,7 @@
 
         # ACL desktop
         {
-          publicKey = "YWmfO36tHExpsxHR8E+i7YzW8XkKaJhbU9WLpoe08g8=";
+          publicKey = "qU0iNknugLhQpl5YrQaVL1D+i0AdNPUuVtJXAZojcxI=";
           allowedIPs = ["10.10.10.20/32"];
         }
 
