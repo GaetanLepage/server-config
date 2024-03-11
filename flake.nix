@@ -33,9 +33,9 @@
     flake-parts,
     nixpkgs,
     simple-nixos-mailserver,
-    agenix,
     agenix-rekey,
     devshell,
+    ...
   } @ inputs:
     flake-parts.lib.mkFlake {inherit inputs;} {
       systems = nixpkgs.lib.systems.flakeExposed;
@@ -57,12 +57,10 @@
           mkHost = hostname: extraModules:
             nixpkgs.lib.nixosSystem {
               inherit system;
+              specialArgs.inputs = inputs;
               modules =
                 [
                   ./nixos/${hostname}
-                  agenix.nixosModules.default
-                  agenix-rekey.nixosModules.default
-                  {age.rekey.localStorageDir = ./secrets/${hostname};}
                 ]
                 ++ extraModules;
             };

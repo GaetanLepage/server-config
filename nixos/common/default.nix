@@ -1,5 +1,6 @@
 {
   imports = [
+    ./agenix.nix
     ./boot.nix
     ./nix.nix
     ./programs.nix
@@ -13,11 +14,6 @@
     networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
     firewall.enable = true;
-  };
-
-  age.rekey = {
-    storageMode = "local";
-    masterIdentities = [../../secrets/identity.age];
   };
 
   # Select internationalisation properties.
