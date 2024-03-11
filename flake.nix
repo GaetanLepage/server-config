@@ -32,7 +32,6 @@
     self,
     flake-parts,
     nixpkgs,
-    simple-nixos-mailserver,
     agenix-rekey,
     devshell,
     ...
@@ -54,21 +53,15 @@
         nixosConfigurations = let
           system = "x86_64-linux";
 
-          mkHost = hostname: extraModules:
+          mkHost = hostname:
             nixpkgs.lib.nixosSystem {
               inherit system;
               specialArgs.inputs = inputs;
-              modules =
-                [
-                  ./nixos/${hostname}
-                ]
-                ++ extraModules;
+              modules = [./nixos/${hostname}];
             };
         in {
-          server = mkHost "server" [
-            simple-nixos-mailserver.nixosModule
-          ];
-          feroe = mkHost "feroe" [];
+          server = mkHost "server";
+          feroe = mkHost "feroe";
         };
       };
 

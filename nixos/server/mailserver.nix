@@ -1,6 +1,10 @@
-let
+{inputs, ...}: let
   base_domain = "glepage.com";
 in {
+  imports = [
+    inputs.simple-nixos-mailserver.nixosModule
+  ];
+
   # TODO remove when https://gitlab.com/simple-nixos-mailserver/nixos-mailserver/-/merge_requests/316 gets merged
   services.dovecot2.sieve.extensions = ["fileinto"];
 
