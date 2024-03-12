@@ -109,8 +109,9 @@ in {
       extraApps = {
         inherit
           (config.services.nextcloud.package.packages.apps)
-          contacts
           calendar
+          contacts
+          cospend
           tasks
           ;
       };
