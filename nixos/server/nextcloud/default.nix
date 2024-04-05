@@ -112,7 +112,6 @@ in {
           calendar
           contacts
           cospend
-          tasks
           ;
       };
 
