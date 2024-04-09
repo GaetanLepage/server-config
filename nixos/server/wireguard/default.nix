@@ -76,6 +76,11 @@
           publicKey = "J+STSrQtKJQoUNykoVF3c9ngaVUkMO3FLefQjIX1qBw=";
           allowedIPs = ["10.10.10.5/32"];
         }
+        # chamaeleon
+        {
+          publicKey = "VtmnRPYRg0iKTaC/HE4gQ/PelAhtC/dcsz7bJ5ktMVE=";
+          allowedIPs = ["10.10.10.6/32"];
+        }
 
         #################
         # Lepage family #
