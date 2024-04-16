@@ -24,10 +24,6 @@
       "robotlearn.${domain_name}".extraConfig = ''
         reverse_proxy 10.10.10.7:8000
       '';
-
-      "robotlearn-socket.${domain_name}".extraConfig = ''
-        reverse_proxy 10.10.10.4:8888
-      '';
     };
   };
 }
