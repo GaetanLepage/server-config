@@ -28,6 +28,11 @@
     publicKey = "VtmnRPYRg0iKTaC/HE4gQ/PelAhtC/dcsz7bJ5ktMVE=";
     allowedIPs = ["10.10.10.6/32"];
   }
+  # alya
+  {
+    publicKey = "3QKHdugbpjZj/VnRr1SUpPgTGVvRT2w/U6T6v1wONSw=";
+    allowedIPs = ["10.10.10.7/32"];
+  }
 
   #################
   # Lepage family #
