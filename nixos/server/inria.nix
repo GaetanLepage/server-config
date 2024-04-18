@@ -16,11 +16,6 @@
         }
       '';
 
-      "jupyter.${domain_name}".extraConfig = ''
-        import vpn
-        reverse_proxy @vpn 10.10.10.4:8080
-      '';
-
       "robotlearn.${domain_name}".extraConfig = ''
         reverse_proxy 10.10.10.7:8000
       '';
