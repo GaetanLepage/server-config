@@ -1,9 +1,7 @@
 {
   services.caddy = {
-    virtualHosts = let
-      domain_name = "glepage.com";
-    in {
-      "tensorboard.${domain_name}".extraConfig = ''
+    virtualHosts = {
+      "tensorboard.glepage.com".extraConfig = ''
         import vpn
         handle @vpn {
 
@@ -16,9 +14,10 @@
         }
       '';
 
-      "robotlearn.${domain_name}".extraConfig = ''
+      "robotlearn.ovh".extraConfig = ''
         reverse_proxy 10.10.10.7:8000
       '';
+
     };
   };
 }
