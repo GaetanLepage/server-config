@@ -18,6 +18,9 @@
         reverse_proxy 10.10.10.7:8000
       '';
 
+      "grafana.robotlearn.ovh".extraConfig = ''
+        reverse_proxy 10.10.10.6:3000
+      '';
     };
   };
 }
