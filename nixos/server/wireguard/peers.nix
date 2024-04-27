@@ -1,64 +1,31 @@
-[
+{
   ##########
   # Gaetan #
   ##########
 
-  # tuxedo laptop
-  {
-    publicKey = "OWezLnTrXzr1YFRs96urcqkOF6J+55S3c1NI0Jq4AXk=";
-    allowedIPs = ["10.10.10.2/32"];
-  }
+  # framework laptop
+  "OWezLnTrXzr1YFRs96urcqkOF6J+55S3c1NI0Jq4AXk=" = 2;
   # Phone
-  {
-    publicKey = "01dWWmsHjpNH7vCEioE3RkSl71zBVM6iSG+Vbb4yix0=";
-    allowedIPs = ["10.10.10.3/32"];
-  }
+  "01dWWmsHjpNH7vCEioE3RkSl71zBVM6iSG+Vbb4yix0=" = 3;
   # alya
-  {
-    publicKey = "hwt8e4sb0IkcrIhe/IBkefZjpa9LcRp5OUoKs569nCY=";
-    allowedIPs = ["10.10.10.4/32"];
-  }
+  "hwt8e4sb0IkcrIhe/IBkefZjpa9LcRp5OUoKs569nCY=" = 4;
   # cuda
-  {
-    publicKey = "J+STSrQtKJQoUNykoVF3c9ngaVUkMO3FLefQjIX1qBw=";
-    allowedIPs = ["10.10.10.5/32"];
-  }
+  "J+STSrQtKJQoUNykoVF3c9ngaVUkMO3FLefQjIX1qBw=" = 5;
   # chamaeleon
-  {
-    publicKey = "VtmnRPYRg0iKTaC/HE4gQ/PelAhtC/dcsz7bJ5ktMVE=";
-    allowedIPs = ["10.10.10.6/32"];
-  }
+  "VtmnRPYRg0iKTaC/HE4gQ/PelAhtC/dcsz7bJ5ktMVE=" = 6;
   # alya
-  {
-    publicKey = "3QKHdugbpjZj/VnRr1SUpPgTGVvRT2w/U6T6v1wONSw=";
-    allowedIPs = ["10.10.10.7/32"];
-  }
+  "3QKHdugbpjZj/VnRr1SUpPgTGVvRT2w/U6T6v1wONSw=" = 7;
 
   #################
   # Lepage family #
   #################
 
   # ACL desktop
-  {
-    publicKey = "qU0iNknugLhQpl5YrQaVL1D+i0AdNPUuVtJXAZojcxI=";
-    allowedIPs = ["10.10.10.20/32"];
-  }
-
+  "qU0iNknugLhQpl5YrQaVL1D+i0AdNPUuVtJXAZojcxI=" = 20;
   # MacBook FL
-  {
-    publicKey = "h9/IH7UOiK0d9NXZ1liIsiJrQoSzJa5TqGFC0rQnKw0=";
-    allowedIPs = ["10.10.10.21/32"];
-  }
-
+  "h9/IH7UOiK0d9NXZ1liIsiJrQoSzJa5TqGFC0rQnKw0=" = 21;
   # Laptop TL
-  {
-    publicKey = "sHlIzQ1NMKcTQfr30Ss+LtqbauBySpQN4+WvW5SOXXI=";
-    allowedIPs = ["10.10.10.22/32"];
-  }
-
-  # Feroe
-  {
-    publicKey = "GXT4bebPRfYqR3cvODMZsR2GdCsldnAe6BnkMhI6rTs=";
-    allowedIPs = ["10.10.10.23/32"];
-  }
-]
+  "sHlIzQ1NMKcTQfr30Ss+LtqbauBySpQN4+WvW5SOXXI=" = 22;
+  # feroe
+  "GXT4bebPRfYqR3cvODMZsR2GdCsldnAe6BnkMhI6rTs=" = 23;
+}

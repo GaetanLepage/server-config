@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }: {
   age.secrets.wireguard-private-key.rekeyFile = ./private-key.age;
@@ -51,7 +52,13 @@
       # >>> PUBLIC KEY: jWzlVwkNkaO1uj7Qh+Xemo0EtxIYP2ufK+18oPcdvBY=
 
       # List of allowed peers.
-      peers = import ./peers.nix;
+      peers =
+        lib.mapAttrsToList
+        (publicKey: id: {
+          inherit publicKey;
+          allowedIPs = ["10.10.10.${toString id}/32"];
+        })
+        (import ./peers.nix);
     };
   };
 }
