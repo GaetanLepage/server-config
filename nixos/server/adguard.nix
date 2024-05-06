@@ -12,6 +12,8 @@ in {
     adguardhome = {
       enable = true;
 
+      inherit port;
+
       settings = {
         users = [
           {
@@ -22,10 +24,7 @@ in {
           }
         ];
 
-        http = {
-          address = "0.0.0.0:${builtins.toString port}";
-          session_ttl = "720h";
-        };
+        http.session_ttl = "720h";
 
         dns = {
           bind_hosts = ["0.0.0.0"];
