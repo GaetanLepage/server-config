@@ -1,4 +1,4 @@
-{pkgs, ...}: let
+let
   domain = "invidious.glepage.com";
   port = 3000;
 in {
@@ -9,17 +9,6 @@ in {
 
     invidious = {
       enable = true;
-
-      # package = pkgs.invidious.overrideAttrs (oldAttrs: {
-      #   version = "unstable-CUSTOM";
-      #   src = pkgs.fetchFromGitHub {
-      #     owner = "iv-org";
-      #     repo = "invidious";
-      #     fetchSubmodules = true;
-      #     rev = "9ce9c543992243737516750bf08f5d073e899715";
-      #     hash = "sha256-yyNtMvHaN3hNxTafhQivN39NzEylrm+FG7S5DNkCtWU=";
-      #   };
-      # });
 
       inherit domain;
       inherit port;
