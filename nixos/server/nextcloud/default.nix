@@ -52,8 +52,8 @@ in {
             root * ${config.services.nextcloud.home}
         }
 
-        redir /.well-known/carddav /remote.php/dav 301
-        redir /.well-known/caldav /remote.php/dav 301
+        redir /.well-known/carddav /remote.php/dav/ 301
+        redir /.well-known/caldav /remote.php/dav/ 301
 
         # .htaccess / data / config / ... shouldn't be accessible from outside
         @forbidden {
