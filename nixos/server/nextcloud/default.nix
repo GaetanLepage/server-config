@@ -132,7 +132,10 @@ in {
       };
 
       settings = {
-        trusted_proxies = ["localhost"];
+        trusted_proxies = [
+          "127.0.0.1"
+          "::1"
+        ];
 
         # Further forces Nextcloud to use HTTPS
         overwriteprotocol = "https";
