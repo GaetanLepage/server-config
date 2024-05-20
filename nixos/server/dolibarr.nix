@@ -11,21 +11,13 @@ in {
     ##############
     # Web server #
     ##############
-    caddy.virtualHosts = {
-      "dolibarr.lepage-knives.com".extraConfig = ''
+    caddy.virtualHosts."dolibarr.lepage-knives.com".extraConfig = ''
+      root * /var/www/dolibarr/htdocs
+      file_server
+      encode gzip
 
-        root * /var/www/dolibarr/htdocs
-        file_server
-        encode gzip
-
-        php_fastcgi unix/${config.services.phpfpm.pools.dolibarr.socket}
-      '';
-
-      # TODO remove
-      "old-erp.lepage-knives.com".extraConfig = ''
-        redir https://dolibarr.lepage-knives.com
-      '';
-    };
+      php_fastcgi unix/${config.services.phpfpm.pools.dolibarr.socket}
+    '';
 
     ###########
     # Php FPM #
