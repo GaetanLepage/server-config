@@ -31,7 +31,6 @@
     # Services
     ./adguard.nix
     ./deluge
-    ./dolibarr.nix
     ./hedgedoc.nix
     ./inria.nix
     ./invidious.nix
