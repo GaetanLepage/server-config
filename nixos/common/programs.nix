@@ -3,6 +3,7 @@
     dua
     git
     htop
+    speedtest-go
     tmux
   ];
 
