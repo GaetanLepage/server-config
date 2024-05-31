@@ -7,7 +7,7 @@
   "OWezLnTrXzr1YFRs96urcqkOF6J+55S3c1NI0Jq4AXk=" = 2;
   # Phone
   "01dWWmsHjpNH7vCEioE3RkSl71zBVM6iSG+Vbb4yix0=" = 3;
-  # alya
+  # auriga
   "hwt8e4sb0IkcrIhe/IBkefZjpa9LcRp5OUoKs569nCY=" = 4;
   # cuda
   "J+STSrQtKJQoUNykoVF3c9ngaVUkMO3FLefQjIX1qBw=" = 5;
