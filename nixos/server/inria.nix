@@ -21,6 +21,10 @@
       "grafana.robotlearn.ovh".extraConfig = ''
         reverse_proxy 10.10.10.6:3000
       '';
+
+      "wiki.robotlearn.ovh".extraConfig = ''
+        redir https://robotlearn.gitlabpages.inria.fr/wiki/
+      '';
     };
   };
 }
