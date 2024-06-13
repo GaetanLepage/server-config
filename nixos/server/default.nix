@@ -37,6 +37,7 @@
     ./jitsi.nix
     ./mumble.nix
     ./nextcloud
+    ./photoprism
     ./vaultwarden
     ./wireguard
   ];
