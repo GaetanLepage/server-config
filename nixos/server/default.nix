@@ -38,6 +38,7 @@
     ./mumble.nix
     ./nextcloud
     ./pigallery2.nix
+    ./selfoss.nix
     ./vaultwarden
     ./wireguard
   ];
