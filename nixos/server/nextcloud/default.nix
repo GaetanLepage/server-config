@@ -17,7 +17,10 @@ in {
     group = "nextcloud";
   };
 
-  users.users.caddy.extraGroups = ["nextcloud"];
+  users.groups.nextcloud.members = [
+    "nextcloud"
+    config.services.caddy.user
+  ];
 
   services = {
     ##############
