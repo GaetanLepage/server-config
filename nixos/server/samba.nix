@@ -29,7 +29,7 @@
         public = "no";
         writable = "yes";
         "guest ok" = "no";
-        "valid users" = ["lepage" "tanguy"];
+        "valid users" = ["anne-catherine" "lepage" "tanguy"];
       };
 
       share = {
