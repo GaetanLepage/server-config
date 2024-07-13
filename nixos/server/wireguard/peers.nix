@@ -20,8 +20,8 @@
   # Lepage family #
   #################
 
-  # ACL desktop
-  "qU0iNknugLhQpl5YrQaVL1D+i0AdNPUuVtJXAZojcxI=" = 20;
+  # ACL laptop
+  "BpU8QcYXrO2SsQNEnDk4SntiOEpYwx2jKMCGnQgqTQo=" = 20;
   # MacBook FL
   "h9/IH7UOiK0d9NXZ1liIsiJrQoSzJa5TqGFC0rQnKw0=" = 21;
   # Laptop TL
