@@ -2,6 +2,7 @@
   environment.systemPackages = with pkgs; [
     dua
     git
+    btop
     htop
     speedtest-go
     tmux
