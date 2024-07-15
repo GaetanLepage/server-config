@@ -137,6 +137,8 @@ in {
       # https://docs.nextcloud.com/server/27/admin_manual/configuration_files/files_locking_transactional.html
       configureRedis = true;
 
+      phpOptions."opcache.interned_strings_buffer" = 32;
+
       secretFile = config.age.secrets.nextcloud-secret-file.path;
 
       config = {
@@ -163,8 +165,6 @@ in {
 
         # https://github.com/NixOS/nixpkgs/issues/192400
         "integrity.check.disabled" = true;
-
-        "opcache.interned_strings_buffer" = 32;
       };
     };
   };
