@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
 
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
@@ -26,12 +27,18 @@
       url = "github:oddlama/agenix-rekey";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
     self,
     flake-parts,
     nixpkgs,
+    nixpkgs-stable,
     agenix-rekey,
     devshell,
     ...
@@ -53,15 +60,16 @@
         nixosConfigurations = let
           system = "x86_64-linux";
 
-          mkHost = hostname:
+          mkHost = hostname: nixpkgs:
             nixpkgs.lib.nixosSystem {
               inherit system;
               specialArgs.inputs = inputs;
               modules = [./nixos/${hostname}];
             };
         in {
-          server = mkHost "server";
-          feroe = mkHost "feroe";
+          server = mkHost "server" nixpkgs;
+          feroe = mkHost "feroe" nixpkgs;
+          vps = mkHost "vps" nixpkgs-stable;
         };
       };
 
