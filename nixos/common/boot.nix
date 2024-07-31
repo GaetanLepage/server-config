@@ -1,8 +1,5 @@
 {
   boot = {
-    # Enable zfs support
-    supportedFilesystems = ["zfs"];
-
     # Use the systemd-boot EFI boot loader.
     loader = {
       systemd-boot = {

@@ -3,6 +3,9 @@
 in {
   age.secrets.rsa_server.rekeyFile = ../common/zfs/ssh-key-server.age;
 
+  # Enable zfs support
+  boot.supportedFilesystems = ["zfs"];
+
   fileSystems = {
     "/tank" = {
       device = "tank";

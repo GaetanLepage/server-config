@@ -18,7 +18,11 @@
 
   age.rekey.hostPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBSFYOqETOI1WDbKieqGIz5iHzys9n92eo/KBhPHeJh";
 
-  boot.zfs.extraPools = ["backup_pool"];
+  # ZFS
+  boot = {
+    supportedFilesystems = ["zfs"];
+    zfs.extraPools = ["backup_pool"];
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
