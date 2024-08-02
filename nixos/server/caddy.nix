@@ -1,20 +1,8 @@
 let
   domain_name = "glepage.com";
 in {
-  networking = {
-    # Open HTTP and HTTPS ports
-    firewall.allowedTCPPorts = [80 443];
-
-    # Services that are only accessible from the vpn
-    hosts = {
-      "10.10.10.1" = [
-        "adguard.${domain_name}"
-        "deluge.${domain_name}"
-        "router.${domain_name}"
-        "tensorboard.${domain_name}"
-      ];
-    };
-  };
+  # Open HTTP and HTTPS ports
+  networking.firewall.allowedTCPPorts = [80 443];
 
   users.users.gaetan.extraGroups = ["caddy"];
 
@@ -23,9 +11,7 @@ in {
 
     extraConfig = ''
       (vpn) {
-          @vpn {
-              remote_ip 10.10.10.0/24
-          }
+          @vpn remote_ip 10.10.10.0/24
       }
     '';
 

@@ -29,7 +29,6 @@
     ./postgresql.nix
 
     # Services
-    ./adguard.nix
     ./deluge
     ./hedgedoc.nix
     ./inria.nix

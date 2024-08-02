@@ -1,13 +1,24 @@
 let
+  hostname = "adguard.glepage.com";
   port = 1080;
 in {
-  networking.firewall = {
-    allowedTCPPorts = [53];
-    allowedUDPPorts = [53];
+  networking = {
+    hosts = {
+      "10.10.10.1" = [hostname];
+      "10.10.10.8" = [
+        "deluge.glepage.com"
+        "router.glepage.com"
+        "tensorboard.glepage.com"
+      ];
+    };
+    firewall = {
+      allowedTCPPorts = [53];
+      allowedUDPPorts = [53];
+    };
   };
 
   services = {
-    caddy.virtualHosts."adguard.glepage.com".extraConfig = ''
+    caddy.virtualHosts.${hostname}.extraConfig = ''
       import vpn
       reverse_proxy @vpn localhost:${toString port}
     '';

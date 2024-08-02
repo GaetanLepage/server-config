@@ -2,9 +2,9 @@
   imports = [
     ./disko.nix
     ./hardware.nix
-    # ./nix.nix
-    # ./ssh.nix
-    # ./users.nix
+
+    ./adguard.nix
+    ./caddy.nix
     ./wireguard
 
     ../common/default.nix
