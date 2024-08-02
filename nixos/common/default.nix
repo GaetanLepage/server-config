@@ -6,6 +6,7 @@
     ./programs.nix
     ./ssh.nix
     ./users.nix
+    ./wireguard.nix
   ];
 
   networking = {
