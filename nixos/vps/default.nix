@@ -3,7 +3,7 @@
     ./disko.nix
     ./hardware.nix
 
-    ./adguard.nix
+    ./dns.nix
     ./caddy.nix
     ./wireguard
 
