@@ -107,6 +107,7 @@
                 echo "=> Updating flake inputs"
                 nix flake update
 
+                deploy vps
                 deploy feroe
                 deploy server
               '';
