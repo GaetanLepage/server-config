@@ -50,18 +50,6 @@ in {
       "jellyfin.${domain_name}".extraConfig = ''
         reverse_proxy 10.10.10.23:8096
       '';
-
-      # Grenug
-      "www.grenug.fr".extraConfig = ''
-        redir https://grenug.fr
-      '';
-
-      "grenug.fr".extraConfig = ''
-        root * /var/www/grenug/
-        encode gzip
-
-        file_server browse
-      '';
     };
   };
 }

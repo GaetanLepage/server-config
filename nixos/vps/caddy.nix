@@ -14,5 +14,19 @@ in {
           @vpn remote_ip 10.10.10.0/24
       }
     '';
+
+    virtualHosts = {
+      # Grenug
+      "www.grenug.fr".extraConfig = ''
+        redir https://grenug.fr
+      '';
+
+      "grenug.fr".extraConfig = ''
+        root * /var/www/grenug/
+        encode gzip
+
+        file_server browse
+      '';
+    };
   };
 }
