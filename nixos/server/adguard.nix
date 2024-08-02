@@ -1,7 +1,10 @@
 let
   port = 1080;
 in {
-  networking.firewall.allowedTCPPorts = [53];
+  networking.firewall = {
+    allowedTCPPorts = [53];
+    allowedUDPPorts = [53];
+  };
 
   services = {
     caddy.virtualHosts."adguard.glepage.com".extraConfig = ''
