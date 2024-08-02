@@ -5,6 +5,7 @@
     # ./nix.nix
     # ./ssh.nix
     # ./users.nix
+    ./wireguard
 
     ../common/default.nix
   ];

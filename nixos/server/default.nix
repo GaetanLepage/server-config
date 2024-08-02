@@ -39,7 +39,6 @@
     ./nextcloud
     ./pigallery2.nix
     ./vaultwarden
-    ./wireguard
   ];
 
   networking = {

@@ -7,7 +7,7 @@
   age.secrets.wireguard-private-key.rekeyFile = ./private-key.age;
 
   networking = let
-    external_interface = "eno1";
+    external_interface = "ens3";
     port = 51820;
   in {
     # Open ports
