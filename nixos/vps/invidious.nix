@@ -7,6 +7,9 @@ in {
       reverse_proxy localhost:${toString port}
     '';
 
+    # Backup database automatically
+    postgresqlBackup.enable = true;
+
     invidious = {
       enable = true;
 

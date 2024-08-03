@@ -31,7 +31,6 @@
     # Services
     ./deluge
     ./hedgedoc.nix
-    ./invidious.nix
     ./jitsi.nix
     ./mumble.nix
     ./nextcloud

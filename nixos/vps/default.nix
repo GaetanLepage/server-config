@@ -5,6 +5,7 @@
 
     ./dns.nix
     ./caddy.nix
+    ./invidious.nix
     ./inria.nix
     ./wireguard
 
