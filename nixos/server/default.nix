@@ -14,9 +14,6 @@
     ./users.nix
     ./zfs.nix
 
-    # Email
-    ./mailserver.nix
-
     # File sharing
     ./nfs.nix
     ./samba.nix

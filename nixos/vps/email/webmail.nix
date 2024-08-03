@@ -1,11 +1,13 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }: {
   services = let
     hostName = "webmail.glepage.com";
   in {
+    nginx.enable = lib.mkForce false;
     caddy.virtualHosts."${hostName}".extraConfig = ''
       root * ${config.services.roundcube.package}
       file_server

@@ -1,6 +1,6 @@
 {
   imports = [
-    # ./mail-server.nix
+    ./mail-server.nix
     ./webmail.nix
   ];
 }
