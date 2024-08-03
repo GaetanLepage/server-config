@@ -16,7 +16,6 @@
 
     # Email
     ./mailserver.nix
-    ./webmail.nix
 
     # File sharing
     ./nfs.nix

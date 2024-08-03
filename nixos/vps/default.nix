@@ -5,6 +5,7 @@
 
     ./dns.nix
     ./caddy.nix
+    ./email
     ./invidious.nix
     ./inria.nix
     ./vaultwarden
