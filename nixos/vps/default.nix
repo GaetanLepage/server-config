@@ -5,6 +5,7 @@
 
     ./dns.nix
     ./caddy.nix
+    ./inria.nix
     ./wireguard
 
     ../common/default.nix
