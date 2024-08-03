@@ -7,6 +7,7 @@
     ./caddy.nix
     ./invidious.nix
     ./inria.nix
+    ./vaultwarden
     ./wireguard
 
     ../common/default.nix
