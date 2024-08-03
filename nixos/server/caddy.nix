@@ -36,17 +36,6 @@ in {
         reverse_proxy http://192.168.100.1
       '';
 
-      "${domain_name}".extraConfig = ''
-        handle_path /df {
-            redir https://github.com/GaetanLepage/nix-config
-        }
-
-        root * /var/www/personal_website/
-        encode gzip
-
-        file_server browse
-      '';
-
       "jellyfin.${domain_name}".extraConfig = ''
         reverse_proxy 10.10.10.23:8096
       '';

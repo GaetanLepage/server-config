@@ -16,6 +16,17 @@ in {
     '';
 
     virtualHosts = {
+      "${domain_name}".extraConfig = ''
+        handle_path /df {
+            redir https://github.com/GaetanLepage/nix-config
+        }
+
+        root * /var/www/personal_website/
+        encode gzip
+
+        file_server browse
+      '';
+
       # Grenug
       "www.grenug.fr".extraConfig = ''
         redir https://grenug.fr
