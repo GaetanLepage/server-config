@@ -27,9 +27,12 @@ in {
         hashedPassword = "$2b$05$ypXOSOtY8tOzh1c6/G.lkesf9NaiHHFiUi0ZbC/gk1wWlcGtyRCrS";
         aliases = [
           "postmaster@${base_domain}"
-          "mail@grenug.fr"
           "3iTYog@${base_domain}"
           "gaetan-medium@${base_domain}"
+
+          # Grenug
+          "mail@grenug.fr"
+          "contact@grenug.fr"
         ];
       };
 
