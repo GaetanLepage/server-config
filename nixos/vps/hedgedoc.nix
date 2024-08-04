@@ -4,10 +4,6 @@ let
 
   databaseName = "hedgedoc";
 in {
-  nixpkgs.config.permittedInsecurePackages = [
-    "nodejs-16.20.0"
-  ];
-
   services = {
     caddy.virtualHosts."${domain}".extraConfig = ''
       reverse_proxy localhost:${toString port}
