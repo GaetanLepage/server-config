@@ -165,6 +165,15 @@ in {
 
         # https://github.com/NixOS/nixpkgs/issues/192400
         "integrity.check.disabled" = true;
+
+        # Some background jobs only run once a day.
+        # When an hour is defined (timezone is UTC) for this config, the background jobs which
+        # advertise themselves as not time-sensitive will be delayed during the “working” hours and
+        # only run in the 4 hours after the given time.
+        # This is e.g. used for activity expiration, suspicious login training, and update checks.
+
+        # A value of 1 will only run these background jobs between 01:00am UTC and 05:00am UTC.
+        maintenance_window_start = 1;
       };
     };
   };
