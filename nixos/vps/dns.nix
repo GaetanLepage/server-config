@@ -4,11 +4,13 @@ let
 in {
   networking = {
     hosts = {
-      "10.10.10.1" = [hostname];
+      "10.10.10.1" = [
+        hostname
+        "tensorboard.glepage.com"
+      ];
       "10.10.10.8" = [
         "deluge.glepage.com"
         "router.glepage.com"
-        "tensorboard.glepage.com"
       ];
     };
     firewall = {
