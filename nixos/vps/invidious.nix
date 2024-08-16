@@ -13,17 +13,6 @@ in {
     invidious = {
       enable = true;
 
-      package = pkgs.invidious.overrideAttrs (old: {
-        src = pkgs.fetchFromGitea {
-          domain = "gitea.invidious.io";
-          owner = "iv-org";
-          repo = "invidious";
-          fetchSubmodules = true;
-          rev = "90e94d4e6cc126a8b7a091d12d7a5556bfe369d5";
-          hash = "sha256-9F+UbPv2aQdKidf+KFOyHa1tWv2NHcfm9DcitninA+4=";
-        };
-      });
-
       inherit domain;
       inherit port;
 
