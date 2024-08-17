@@ -138,6 +138,7 @@ in {
           calendar
           contacts
           cospend
+          onlyoffice
           ;
       };
 
