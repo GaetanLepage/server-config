@@ -39,10 +39,10 @@
 
     # Needed for ZFS
     # generated using `head -c 8 /etc/machine-id`
-    hostId = "4ce2e691";
+    hostId = "f504d887";
   };
 
-  age.rekey.hostPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKe9Aaq7KTHGkw3eMK8Qv/NkzAW0hvRzFQQ6Qxu6U3Jk";
+  age.rekey.hostPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDpwnnDFq6MrqjvwYikioz5kr3iOgD3iC+rPm6rC2O4b";
 
   services.nginx.enable = lib.mkForce false;
 
