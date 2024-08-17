@@ -11,10 +11,17 @@ in {
     ./onlyoffice.nix
   ];
 
-  age.secrets.nextcloud-secret-file = {
-    rekeyFile = ./nextcloud-secret-file.age;
-    owner = "nextcloud";
-    group = "nextcloud";
+  age.secrets = {
+    nextcloud-secret-file = {
+      rekeyFile = ./nextcloud-secret-file.age;
+      owner = "nextcloud";
+      group = "nextcloud";
+    };
+    nextcloud-adminpass-file = {
+      rekeyFile = ./nextcloud-adminpass-file.age;
+      owner = "nextcloud";
+      group = "nextcloud";
+    };
   };
 
   users.groups.nextcloud.members = [
@@ -142,7 +149,7 @@ in {
       secretFile = config.age.secrets.nextcloud-secret-file.path;
 
       config = {
-        adminpassFile = "/var/nextcloud_admin_pass";
+        adminpassFile = config.age.secrets.nextcloud-adminpass-file.path;
         adminuser = "glepage";
 
         # Database
