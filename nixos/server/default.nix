@@ -13,6 +13,7 @@
     ./backup.nix
     ./users.nix
     ./zfs.nix
+    ./disko.nix
 
     # File sharing
     ./nfs.nix
