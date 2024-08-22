@@ -27,7 +27,7 @@
 
     # Services
     ./deluge
-    ./jitsi.nix
+    # ./jitsi.nix
     ./mumble.nix
     ./nextcloud
     ./pigallery2.nix
