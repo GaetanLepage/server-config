@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  inputs,
+  pkgs,
+  ...
+}: let
   domain = "invidious.glepage.com";
   port = 3000;
 in {
@@ -12,6 +16,8 @@ in {
 
     invidious = {
       enable = true;
+
+      package = (import inputs.nixpkgs {inherit (pkgs) system;}).invidious;
 
       inherit domain;
       inherit port;
