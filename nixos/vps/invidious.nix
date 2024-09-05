@@ -17,7 +17,7 @@ in {
     invidious = {
       enable = true;
 
-      package = (import inputs.nixpkgs {inherit (pkgs) system;}).invidious;
+      # package = (import inputs.nixpkgs {inherit (pkgs) system;}).invidious;
 
       inherit domain;
       inherit port;
