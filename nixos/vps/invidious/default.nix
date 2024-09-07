@@ -51,6 +51,14 @@ in {
 
         db.user = "invidious";
 
+        # Necessary settings when using a reverse proxy
+        # https://docs.invidious.io/installation/#post-install-configuration
+        https_only = true;
+        external_port = 443;
+        inherit domain;
+        use_pubsub_feeds = true;
+        use_innertube_for_captions = true;
+
         default_user_preferences = {
           # List of feeds available on the home page.
           #
