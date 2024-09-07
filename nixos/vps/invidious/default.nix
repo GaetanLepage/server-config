@@ -1,11 +1,25 @@
 {
   inputs,
   pkgs,
+  config,
   ...
 }: let
   domain = "invidious.glepage.com";
   port = 3000;
 in {
+  age.secrets.invidious-extra-settings = {
+    rekeyFile = ./extra-settings.age;
+    owner = "invidious";
+    group = "invidious";
+  };
+  users = {
+    users.invidious = {
+      isSystemUser = true;
+      group = "invidious";
+    };
+    groups.invidious = {};
+  };
+
   services = {
     caddy.virtualHosts."${domain}".extraConfig = ''
       reverse_proxy localhost:${toString port}
@@ -22,15 +36,14 @@ in {
       inherit domain;
       inherit port;
 
+      extraSettingsFile = config.age.secrets.invidious-extra-settings.path;
+
       settings = {
         # Allow/Forbid Invidious (local) account creation.
         # Invidious accounts allow users to subscribe to channels and to create playlists
         # without a Google account.
         registration_enabled = false;
 
-        # It is now mandatory to set the hmac key (used for CSRF tokens and pubsub subscriptions
-        # verification.)
-        # https://github.com/iv-org/invidious/issues/3854
         hmac_key = "ef9Shohh6hucuaK5thae";
 
         # Enable/Disable the "Popular" tab on the main page

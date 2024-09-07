@@ -7,7 +7,7 @@
     ./caddy.nix
     ./email
     ./hedgedoc.nix
-    ./invidious.nix
+    ./invidious
     ./inria.nix
     ./vaultwarden
     ./wireguard
