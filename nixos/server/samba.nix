@@ -23,13 +23,13 @@
 
     openFirewall = true;
 
-    shares = {
+    settings = {
       lepage = {
         path = "/tank/lepage_family/";
         public = "no";
         writable = "yes";
         "guest ok" = "no";
-        "valid users" = ["anne-catherine" "lepage" "tanguy"];
+        "valid users" = "anne-catherine lepage tanguy";
       };
 
       share = {
