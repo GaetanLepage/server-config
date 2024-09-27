@@ -9,6 +9,7 @@
     ./hedgedoc.nix
     ./invidious
     ./inria.nix
+    ./microbin.nix
     ./vaultwarden
     ./wireguard
 
