@@ -1,9 +1,4 @@
-{
-  inputs,
-  pkgs,
-  config,
-  ...
-}: let
+{config, ...}: let
   domain = "invidious.glepage.com";
   port = 3000;
 in {
