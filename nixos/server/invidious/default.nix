@@ -31,6 +31,8 @@ in {
       inherit domain;
       inherit port;
 
+      sig-helper.enable = true;
+
       extraSettingsFile = config.age.secrets.invidious-extra-settings.path;
 
       settings = {
