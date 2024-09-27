@@ -27,6 +27,7 @@
 
     # Services
     ./deluge
+    ./invidious
     # ./jitsi.nix
     ./mumble.nix
     ./nextcloud
