@@ -30,10 +30,6 @@ in {
             }
         }
       '';
-
-      "jellyfin.${domain_name}".extraConfig = ''
-        reverse_proxy 10.10.10.23:8096
-      '';
     };
   };
 }
