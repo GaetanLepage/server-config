@@ -10,6 +10,7 @@
     ./inria.nix
     ./microbin.nix
     ./vaultwarden
+    ./vikunja.nix
     ./wireguard
 
     ../common/default.nix
