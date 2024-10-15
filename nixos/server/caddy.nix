@@ -31,11 +31,6 @@ in {
         }
       '';
 
-      # Box configuration
-      "box.${domain_name}".extraConfig = ''
-        reverse_proxy http://192.168.100.1
-      '';
-
       "jellyfin.${domain_name}".extraConfig = ''
         reverse_proxy 10.10.10.23:8096
       '';
