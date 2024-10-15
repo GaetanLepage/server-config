@@ -9,12 +9,6 @@ in {
   services.caddy = {
     enable = true;
 
-    extraConfig = ''
-      (vpn) {
-          @vpn remote_ip 10.10.10.0/24
-      }
-    '';
-
     virtualHosts = {
       # Router configuration
       "router.${domain_name}".extraConfig = ''

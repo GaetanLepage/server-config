@@ -5,9 +5,7 @@ in {
   age.secrets.vaultwarden-env-file.rekeyFile = ./env-file.age;
 
   services = {
-    caddy.virtualHosts.${domain}.extraConfig = ''
-      reverse_proxy localhost:${toString port}
-    '';
+    caddy.reverseProxies.${domain}.port = port;
 
     vaultwarden = {
       enable = true;

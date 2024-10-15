@@ -16,9 +16,7 @@ in {
   };
 
   services = {
-    caddy.virtualHosts."${domain}".extraConfig = ''
-      reverse_proxy localhost:${toString port}
-    '';
+    caddy.reverseProxies."${domain}".port = port;
 
     # Backup database automatically
     postgresqlBackup.enable = true;

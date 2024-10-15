@@ -20,10 +20,10 @@ in {
   };
 
   services = {
-    caddy.virtualHosts.${hostname}.extraConfig = ''
-      import vpn
-      reverse_proxy @vpn localhost:${toString port}
-    '';
+    caddy.reverseProxies.${hostname} = {
+      inherit port;
+      vpn = true;
+    };
 
     adguardhome = {
       enable = true;

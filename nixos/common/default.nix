@@ -1,6 +1,7 @@
 {
   imports = [
     ./agenix.nix
+    ./caddy.nix
     ./boot.nix
     ./nix.nix
     ./programs.nix

@@ -1,4 +1,8 @@
-{config, ...}: let
+{
+  lib,
+  config,
+  ...
+}: let
   seedingPorts = [16881 6881];
 in {
   age.secrets.deluge_auth_file = {
@@ -17,10 +21,10 @@ in {
   };
 
   services = {
-    caddy.virtualHosts."deluge.glepage.com".extraConfig = ''
-      import vpn
-      reverse_proxy @vpn localhost:${toString config.services.deluge.web.port}
-    '';
+    caddy.reverseProxies."deluge.glepage.com" = {
+      inherit (config.services.deluge.web) port;
+      vpn = true;
+    };
 
     deluge = {
       enable = true;

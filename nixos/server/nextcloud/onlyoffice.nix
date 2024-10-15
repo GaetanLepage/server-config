@@ -1,11 +1,9 @@
 {config, ...}: let
   domain = "onlyoffice.glepage.com";
-  port = "1680";
+  port = 1680;
 in {
   services = {
-    caddy.virtualHosts."${domain}".extraConfig = ''
-      reverse_proxy localhost:${port}
-    '';
+    caddy.reverseProxies."${domain}".port = port;
 
     nextcloud.settings.onlyoffice.DocumentServerUrl = domain;
   };
@@ -17,7 +15,7 @@ in {
 
     oci-containers.containers.only-office = {
       image = "onlyoffice/documentserver";
-      ports = ["${port}:80"];
+      ports = ["${toString port}:80"];
       # Disable token authentication because it is annoying...
       environment.JWT_ENABLED = "true";
       environmentFiles = [

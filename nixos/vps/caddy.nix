@@ -9,12 +9,6 @@ in {
   services.caddy = {
     enable = true;
 
-    extraConfig = ''
-      (vpn) {
-          @vpn remote_ip 10.10.10.0/24
-      }
-    '';
-
     virtualHosts = {
       "${domain_name}".extraConfig = ''
         handle_path /df {
@@ -38,10 +32,8 @@ in {
 
         file_server browse
       '';
-
-      "jellyfin.${domain_name}".extraConfig = ''
-        reverse_proxy 10.10.10.23:8096
-      '';
     };
+
+    reverseProxies."jellyfin.${domain_name}".port = 8096;
   };
 }

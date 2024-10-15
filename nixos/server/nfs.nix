@@ -8,10 +8,10 @@
       options = "rw,sync,no_subtree_check";
     in ''
       # wireguard
-      /tank           10.10.10.0/24(${options})
+      /tank           192.168.1.134/32(${options}) 10.10.10.0/24(${options})
 
       # Everyone
-      /tank/share     192.168.1.0/24(${options})
+      # /tank/share     192.168.1.0/24(${options})
     '';
   };
 }

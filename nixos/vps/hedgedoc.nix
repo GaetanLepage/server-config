@@ -5,9 +5,7 @@ let
   databaseName = "hedgedoc";
 in {
   services = {
-    caddy.virtualHosts."${domain}".extraConfig = ''
-      reverse_proxy localhost:${toString port}
-    '';
+    caddy.reverseProxies."${domain}".port = port;
 
     # Database
     postgresql = {

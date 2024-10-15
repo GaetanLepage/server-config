@@ -1,16 +1,14 @@
 {lib, ...}: let
-  port = "8081";
+  port = 8081;
 in {
-  services.caddy.virtualHosts."photos.glepage.com".extraConfig = ''
-    reverse_proxy localhost:${port}
-  '';
+  services.caddy.reverseProxies."photos.glepage.com".port = port;
 
   virtualisation = {
     podman.enable = true;
 
     oci-containers.containers.pigallery2 = {
       image = "bpatrik/pigallery2:latest";
-      ports = ["${port}:80"];
+      ports = ["${toString port}:80"];
       environment.NODE_ENV = "production";
       volumes = let
         root = "/var/lib/pigallery2";
