@@ -1,6 +1,4 @@
-let
-  domain_name = "glepage.com";
-in {
+{
   # Open HTTP and HTTPS ports
   networking.firewall.allowedTCPPorts = [80 443];
 
@@ -11,7 +9,7 @@ in {
 
     virtualHosts = {
       # Router configuration
-      "router.${domain_name}".extraConfig = ''
+      "router.glepage.com".extraConfig = ''
         import vpn
 
         handle @vpn {
