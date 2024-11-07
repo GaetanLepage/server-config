@@ -7,21 +7,9 @@
   services.caddy = {
     enable = true;
 
-    virtualHosts = {
-      # Router configuration
-      "router.glepage.com".extraConfig = ''
-        import vpn
-
-        handle @vpn {
-            reverse_proxy {
-                to 192.168.1.1:443
-                transport http {
-                    tls
-                    tls_insecure_skip_verify
-                }
-            }
-        }
-      '';
+    reverseProxies."router.glepage.com" = {
+      localIp = "192.168.1.1";
+      vpn = true;
     };
   };
 }
