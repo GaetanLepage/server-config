@@ -9,7 +9,8 @@
         type = lib.types.attrsOf (lib.types.submodule {
           options = {
             port = lib.mkOption {
-              type = lib.types.port;
+              type = with lib.types; nullOr port;
+              default = null;
             };
 
             vpn = lib.mkOption {
@@ -40,7 +41,7 @@
       virtualHosts =
         lib.mapAttrs (domain: opts: {
           extraConfig = let
-            proxyStr = "${opts.localIp}:${toString opts.port}";
+            proxyStr = opts.localIp + lib.optionalString (opts.port != null) ":${toString opts.port}";
           in
             if opts.vpn
             then ''
