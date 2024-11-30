@@ -2,8 +2,7 @@
   description = "Server configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
 
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
@@ -18,7 +17,7 @@
       # TODO: switch to nixos-24.11 when available
       # url = "gitlab:simple-nixos-mailserver/nixos-mailserver/nixos-24.11";
       url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
-      inputs.nixpkgs.follows = "nixpkgs-stable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     agenix = {
@@ -40,7 +39,6 @@
     self,
     flake-parts,
     nixpkgs,
-    nixpkgs-stable,
     agenix-rekey,
     devshell,
     ...
@@ -62,16 +60,16 @@
         nixosConfigurations = let
           system = "x86_64-linux";
 
-          mkHost = hostname: nixpkgs:
+          mkHost = hostname:
             nixpkgs.lib.nixosSystem {
               inherit system;
               specialArgs.inputs = inputs;
               modules = [./nixos/${hostname}];
             };
         in {
-          server = mkHost "server" nixpkgs;
-          feroe = mkHost "feroe" nixpkgs;
-          vps = mkHost "vps" nixpkgs-stable;
+          server = mkHost "server";
+          feroe = mkHost "feroe";
+          vps = mkHost "vps";
         };
       };
 
