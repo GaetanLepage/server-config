@@ -29,6 +29,7 @@ in {
           "postmaster@${base_domain}"
           "3iTYog@${base_domain}"
           "gaetan-medium@${base_domain}"
+          "gaetan-twitter-public@${base_domain}" # @GaetanLepage_
 
           # Grenug
           "mail@grenug.fr"
