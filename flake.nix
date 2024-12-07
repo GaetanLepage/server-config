@@ -53,7 +53,7 @@
       flake = {
         agenix-rekey = agenix-rekey.configure {
           userFlake = self;
-          nodes = self.nixosConfigurations;
+          inherit (self) nixosConfigurations;
         };
 
         # System configuration
