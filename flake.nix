@@ -14,9 +14,7 @@
     };
 
     simple-nixos-mailserver = {
-      # TODO: switch to nixos-24.11 when available
-      # url = "gitlab:simple-nixos-mailserver/nixos-mailserver/nixos-24.11";
-      url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
+      url = "gitlab:simple-nixos-mailserver/nixos-mailserver/nixos-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
