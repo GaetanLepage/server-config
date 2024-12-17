@@ -1,5 +1,7 @@
 {
-  services.caddy = {
+  services.caddy = let
+    domain = "robotlearn.ovh";
+  in {
     virtualHosts = {
       "tensorboard.glepage.com".extraConfig = ''
         import vpn
@@ -13,20 +15,25 @@
             }
         }
       '';
-      "wiki.robotlearn.ovh".extraConfig = ''
+      "wiki.${domain}".extraConfig = ''
         redir https://robotlearn.gitlabpages.inria.fr/wiki/
       '';
     };
 
     reverseProxies = {
-      "robotlearn.ovh" = {
+      domain = {
         localIp = "10.10.10.7";
         port = 8000;
       };
 
-      "grafana.robotlearn.ovh" = {
+      "grafana.${domain}" = {
         localIp = "10.10.10.6";
         port = 3000;
+      };
+
+      "ollama.${domain}" = {
+        localIp = "10.10.10.4"; # auriga
+        port = 11434;
       };
     };
   };
