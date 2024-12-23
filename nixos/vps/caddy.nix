@@ -1,10 +1,14 @@
 let
   domain_name = "glepage.com";
-in {
+in
+{
   # Open HTTP and HTTPS ports
-  networking.firewall.allowedTCPPorts = [80 443];
+  networking.firewall.allowedTCPPorts = [
+    80
+    443
+  ];
 
-  users.users.gaetan.extraGroups = ["caddy"];
+  users.users.gaetan.extraGroups = [ "caddy" ];
 
   services.caddy = {
     enable = true;

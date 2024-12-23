@@ -1,6 +1,8 @@
-{inputs, ...}: let
+{ inputs, ... }:
+let
   base_domain = "glepage.com";
-in {
+in
+{
   imports = [
     inputs.simple-nixos-mailserver.nixosModule
   ];

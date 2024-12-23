@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   imports = [
     # Include the results of the hardware scan.
     ./hardware.nix
@@ -20,8 +21,8 @@
 
   # ZFS
   boot = {
-    supportedFilesystems = ["zfs"];
-    zfs.extraPools = ["backup_pool"];
+    supportedFilesystems = [ "zfs" ];
+    zfs.extraPools = [ "backup_pool" ];
   };
 
   # This value determines the NixOS release from which the default
@@ -35,7 +36,7 @@
   ###################
   # ZFS replication #
   ###################
-  environment.systemPackages = [pkgs.lz4];
+  environment.systemPackages = [ pkgs.lz4 ];
 
   users.users.zfs = {
     isNormalUser = true;

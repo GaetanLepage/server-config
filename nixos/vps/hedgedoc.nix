@@ -3,13 +3,14 @@ let
   port = 1780;
 
   databaseName = "hedgedoc";
-in {
+in
+{
   services = {
     caddy.reverseProxies."${domain}".port = port;
 
     # Database
     postgresql = {
-      ensureDatabases = [databaseName];
+      ensureDatabases = [ databaseName ];
       ensureUsers = [
         {
           name = databaseName;

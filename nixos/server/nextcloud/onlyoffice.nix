@@ -1,7 +1,9 @@
-{config, ...}: let
+{ config, ... }:
+let
   domain = "onlyoffice.glepage.com";
   port = 1680;
-in {
+in
+{
   services = {
     caddy.reverseProxies."${domain}".port = port;
 
@@ -15,7 +17,7 @@ in {
 
     oci-containers.containers.only-office = {
       image = "onlyoffice/documentserver";
-      ports = ["${toString port}:80"];
+      ports = [ "${toString port}:80" ];
       # Disable token authentication because it is annoying...
       environment.JWT_ENABLED = "true";
       environmentFiles = [

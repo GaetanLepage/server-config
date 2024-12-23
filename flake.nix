@@ -37,15 +37,16 @@
     };
   };
 
-  outputs = {
-    self,
-    flake-parts,
-    nixpkgs,
-    agenix-rekey,
-    devshell,
-    ...
-  } @ inputs:
-    flake-parts.lib.mkFlake {inherit inputs;} {
+  outputs =
+    {
+      self,
+      flake-parts,
+      nixpkgs,
+      agenix-rekey,
+      devshell,
+      ...
+    }@inputs:
+    flake-parts.lib.mkFlake { inherit inputs; } {
       systems = nixpkgs.lib.systems.flakeExposed;
 
       imports = [
@@ -60,69 +61,74 @@
         };
 
         # System configuration
-        nixosConfigurations = let
-          system = "x86_64-linux";
+        nixosConfigurations =
+          let
+            system = "x86_64-linux";
 
-          mkHost = hostname:
-            nixpkgs.lib.nixosSystem {
-              inherit system;
-              specialArgs.inputs = inputs;
-              modules = [./nixos/${hostname}];
-            };
-        in {
-          server = mkHost "server";
-          feroe = mkHost "feroe";
-          vps = mkHost "vps";
-        };
+            mkHost =
+              hostname:
+              nixpkgs.lib.nixosSystem {
+                inherit system;
+                specialArgs.inputs = inputs;
+                modules = [ ./nixos/${hostname} ];
+              };
+          in
+          {
+            server = mkHost "server";
+            feroe = mkHost "feroe";
+            vps = mkHost "vps";
+          };
       };
 
-      perSystem = {
-        config,
-        pkgs,
-        system,
-        ...
-      }: {
-        treefmt.config = {
-          projectRootFile = "flake.nix";
-          flakeCheck = true;
-          programs = {
-            nixfmt.enable = true;
+      perSystem =
+        {
+          config,
+          pkgs,
+          system,
+          ...
+        }:
+        {
+          treefmt.config = {
+            projectRootFile = "flake.nix";
+            flakeCheck = true;
+            programs = {
+              nixfmt.enable = true;
+            };
+          };
+
+          devshells.default = {
+            packages = [
+              agenix-rekey.packages.${system}.default
+            ];
+
+            commands = [
+              {
+                name = "deploy";
+                command = ''
+                  hostname=$1
+
+                  echo -e "\n=> Updating '$hostname' system"
+                  nixos-rebuild switch \
+                    --verbose \
+                    --fast \
+                    --flake .#"$hostname" \
+                    --target-host root@"$hostname" \
+                    --build-host root@"$hostname"
+                '';
+              }
+              {
+                name = "update";
+                command = ''
+                  echo "=> Updating flake inputs"
+                  nix flake update
+
+                  deploy vps
+                  deploy feroe
+                  deploy server
+                '';
+              }
+            ];
           };
         };
-
-        devshells.default = {
-          packages = [
-            agenix-rekey.packages.${system}.default
-          ];
-
-          commands = [
-            {
-              name = "deploy";
-              command = ''
-                hostname=$1
-
-                echo -e "\n=> Updating '$hostname' system"
-                nixos-rebuild switch \
-                  --verbose \
-                  --fast \
-                  --flake .#"$hostname" \
-                  --target-host root@"$hostname" \
-                  --build-host root@"$hostname"
-              '';
-            }
-            {
-              name = "update";
-              command = ''
-                echo "=> Updating flake inputs"
-                nix flake update
-
-                deploy vps
-                deploy feroe
-                deploy server
-              '';
-            }
-          ];
-        };
-      };
     };
 }

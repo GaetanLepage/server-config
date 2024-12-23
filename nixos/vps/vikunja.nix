@@ -1,6 +1,8 @@
-{config, ...}: let
+{ config, ... }:
+let
   domain = "board.glepage.com";
-in {
+in
+{
   services = {
     caddy.reverseProxies.${domain} = {
       inherit (config.services.vikunja) port;

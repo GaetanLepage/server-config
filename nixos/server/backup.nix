@@ -1,10 +1,11 @@
-{pkgs, ...}: {
-  environment.systemPackages = [pkgs.rsync];
+{ pkgs, ... }:
+{
+  environment.systemPackages = [ pkgs.rsync ];
 
   systemd = {
     services.backup-var-to-tank = {
       description = "Script that periodically backups the /var directory to /tank/backup/var";
-      after = ["zfs-import.target"];
+      after = [ "zfs-import.target" ];
 
       serviceConfig = {
         Type = "oneshot";
@@ -30,8 +31,8 @@
     };
 
     timers.backup-var-to-tank = {
-      wantedBy = ["timers.target"];
-      after = ["multi-user.target"];
+      wantedBy = [ "timers.target" ];
+      after = [ "multi-user.target" ];
 
       timerConfig = {
         OnCalendar = "hourly";

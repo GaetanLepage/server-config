@@ -1,7 +1,9 @@
-{config, ...}: let
+{ config, ... }:
+let
   port = 1380;
   domain = "bitwarden.glepage.com";
-in {
+in
+{
   age.secrets.vaultwarden-env-file.rekeyFile = ./env-file.age;
 
   services = {

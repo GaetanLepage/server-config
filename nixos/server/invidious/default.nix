@@ -1,7 +1,9 @@
-{config, ...}: let
+{ config, ... }:
+let
   domain = "invidious.glepage.com";
   port = 3000;
-in {
+in
+{
   age.secrets.invidious-extra-settings = {
     rekeyFile = ./extra-settings.age;
     owner = "invidious";
@@ -12,7 +14,7 @@ in {
       isSystemUser = true;
       group = "invidious";
     };
-    groups.invidious = {};
+    groups.invidious = { };
   };
 
   services = {
@@ -64,7 +66,7 @@ in {
           #
           # Default: ["Popular", "Trending", "Subscriptions", "Playlists"]  (show all feeds)
           #
-          feed_menu = ["Trending"];
+          feed_menu = [ "Trending" ];
 
           # Default feed to display on the home page.
           #

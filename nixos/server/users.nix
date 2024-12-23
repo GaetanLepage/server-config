@@ -35,7 +35,7 @@
       tanguy = {
         gid = 1006;
 
-        members = ["tanguy"];
+        members = [ "tanguy" ];
       };
     };
   };

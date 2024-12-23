@@ -2,9 +2,14 @@
   lib,
   config,
   ...
-}: let
-  seedingPorts = [16881 6881];
-in {
+}:
+let
+  seedingPorts = [
+    16881
+    6881
+  ];
+in
+{
   age.secrets.deluge_auth_file = {
     rekeyFile = ./deluge-auth-file.age;
     owner = config.services.deluge.user;

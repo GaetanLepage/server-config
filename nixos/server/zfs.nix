@@ -1,10 +1,12 @@
-{config, ...}: let
+{ config, ... }:
+let
   remoteBackupHostname = "feroe.glepage.com";
-in {
+in
+{
   age.secrets.rsa_server.rekeyFile = ../common/zfs/ssh-key-server.age;
 
   # Enable zfs support
-  boot.supportedFilesystems = ["zfs"];
+  boot.supportedFilesystems = [ "zfs" ];
 
   fileSystems = {
     "/tank" = {
@@ -39,5 +41,6 @@ in {
       remoteFilesystem = "backup_pool/tank_backup";
     };
   };
-  programs.ssh.knownHosts.${remoteBackupHostname}.publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBSFYOqETOI1WDbKieqGIz5iHzys9n92eo/KBhPHeJh";
+  programs.ssh.knownHosts.${remoteBackupHostname}.publicKey =
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBSFYOqETOI1WDbKieqGIz5iHzys9n92eo/KBhPHeJh";
 }

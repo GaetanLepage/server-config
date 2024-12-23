@@ -1,6 +1,8 @@
-{lib, ...}: let
+{ lib, ... }:
+let
   port = 8081;
-in {
+in
+{
   services.caddy.reverseProxies."photos.glepage.com".port = port;
 
   virtualisation = {
@@ -8,11 +10,12 @@ in {
 
     oci-containers.containers.pigallery2 = {
       image = "bpatrik/pigallery2:latest";
-      ports = ["${toString port}:80"];
+      ports = [ "${toString port}:80" ];
       environment.NODE_ENV = "production";
-      volumes = let
-        root = "/var/lib/pigallery2";
-      in
+      volumes =
+        let
+          root = "/var/lib/pigallery2";
+        in
         lib.mapAttrsToList (n: v: n + ":" + v) {
           "/tank/gaetan/photos" = "/app/data/images";
           "${root}/config" = "/app/data/config";

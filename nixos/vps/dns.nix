@@ -1,7 +1,8 @@
 let
   hostname = "adguard.glepage.com";
   port = 1080;
-in {
+in
+{
   networking = {
     hosts = {
       "10.10.10.1" = [
@@ -14,8 +15,8 @@ in {
       ];
     };
     firewall = {
-      allowedTCPPorts = [53];
-      allowedUDPPorts = [53];
+      allowedTCPPorts = [ 53 ];
+      allowedUDPPorts = [ 53 ];
     };
   };
 
@@ -43,9 +44,9 @@ in {
         http.session_ttl = "720h";
 
         dns = {
-          bind_hosts = ["0.0.0.0"];
+          bind_hosts = [ "0.0.0.0" ];
 
-          bootstrap_dns = ["9.9.9.9"];
+          bootstrap_dns = [ "9.9.9.9" ];
         };
       };
 
