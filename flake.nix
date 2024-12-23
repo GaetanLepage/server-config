@@ -12,6 +12,10 @@
       url = "github:numtide/devshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     simple-nixos-mailserver = {
       url = "gitlab:simple-nixos-mailserver/nixos-mailserver/nixos-24.11";
@@ -46,6 +50,7 @@
 
       imports = [
         inputs.devshell.flakeModule
+        inputs.treefmt-nix.flakeModule
       ];
 
       flake = {
@@ -77,7 +82,13 @@
         system,
         ...
       }: {
-        formatter = pkgs.alejandra;
+        treefmt.config = {
+          projectRootFile = "flake.nix";
+          flakeCheck = true;
+          programs = {
+            nixfmt.enable = true;
+          };
+        };
 
         devshells.default = {
           packages = [

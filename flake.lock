@@ -350,7 +350,8 @@
         "disko": "disko",
         "flake-parts": "flake-parts_2",
         "nixpkgs": "nixpkgs",
-        "simple-nixos-mailserver": "simple-nixos-mailserver"
+        "simple-nixos-mailserver": "simple-nixos-mailserver",
+        "treefmt-nix": "treefmt-nix_2"
       }
     },
     "simple-nixos-mailserver": {
@@ -405,6 +406,26 @@
         "owner": "numtide",
         "repo": "treefmt-nix",
         "rev": "705df92694af7093dfbb27109ce16d828a79155f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "treefmt-nix_2": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1734704479,
+        "narHash": "sha256-MMi74+WckoyEWBRcg/oaGRvXC9BVVxDZNRMpL+72wBI=",
+        "owner": "numtide",
+        "repo": "treefmt-nix",
+        "rev": "65712f5af67234dad91a5a4baee986a8b62dbf8f",
         "type": "github"
       },
       "original": {
