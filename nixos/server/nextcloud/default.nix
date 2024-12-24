@@ -172,6 +172,19 @@ in
         # Further forces Nextcloud to use HTTPS
         overwriteprotocol = "https";
 
+        # Allows to send emails
+        mail_smtpmode = "smtp";
+        mail_smtphost = "mail.glepage.com";
+        mail_smtpport = 587; # STARTTLS
+        mail_smtpauth = true;
+        mail_smtpname = "nextcloud@glepage.com";
+        # mail_smtppassword is in the `cfg.secretFile`
+        mail_smtpstreamoptions.ssl = {
+          allow_self_signed = true;
+          verify_peer = false;
+          verify_peer_name = false;
+        };
+
         default_phone_region = "FR";
 
         # https://github.com/NixOS/nixpkgs/issues/192400
