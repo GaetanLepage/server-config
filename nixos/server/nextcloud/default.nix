@@ -187,9 +187,6 @@ in
 
         default_phone_region = "FR";
 
-        # https://github.com/NixOS/nixpkgs/issues/192400
-        "integrity.check.disabled" = true;
-
         # Some background jobs only run once a day.
         # When an hour is defined (timezone is UTC) for this config, the background jobs which
         # advertise themselves as not time-sensitive will be delayed during the “working” hours and
