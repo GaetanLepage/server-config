@@ -39,6 +39,10 @@ in
         ];
       };
 
+      "nextcloud@${base_domain}" = {
+        hashedPassword = "$2b$05$kM8SVZdLQQcDtKlV4esnnO.Dhs7slPpSn2269fDB4oh6jIDcvWzMy";
+      };
+
       ################################
       # Aliases for deleted accounts #
       ################################
