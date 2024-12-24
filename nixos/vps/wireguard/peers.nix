@@ -15,7 +15,7 @@
   "VtmnRPYRg0iKTaC/HE4gQ/PelAhtC/dcsz7bJ5ktMVE=" = 6;
   # alya
   "3QKHdugbpjZj/VnRr1SUpPgTGVvRT2w/U6T6v1wONSw=" = 7;
-  # server
+  # tank
   "CG842e862qJY1J3L9rS15plnuLb8dyh+3K4bC04JnkU=" = 8;
 
   #################

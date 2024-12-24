@@ -74,7 +74,7 @@
               };
           in
           {
-            server = mkHost "server";
+            tank = mkHost "tank";
             feroe = mkHost "feroe";
             vps = mkHost "vps";
           };
@@ -124,7 +124,7 @@
 
                   deploy vps
                   deploy feroe
-                  deploy server
+                  deploy tank
                 '';
               }
             ];

@@ -37,7 +37,7 @@
   ];
 
   networking = {
-    hostName = "server";
+    hostName = "tank";
 
     # Needed for ZFS
     # generated using `head -c 8 /etc/machine-id`
