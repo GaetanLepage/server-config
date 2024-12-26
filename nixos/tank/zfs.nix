@@ -1,6 +1,6 @@
 { config, ... }:
 let
-  remoteBackupHostname = "feroe.glepage.com";
+  remoteBackupHostname = "10.10.10.23";
 in
 {
   age.secrets.rsa_server.rekeyFile = ../common/zfs/ssh-key-server.age;
