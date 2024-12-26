@@ -32,7 +32,6 @@
     # ./jitsi.nix
     ./mumble.nix
     ./nextcloud
-    ./paperless
     ./pigallery2.nix
     ./wireguard
   ];
