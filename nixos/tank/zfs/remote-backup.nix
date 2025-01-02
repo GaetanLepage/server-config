@@ -1,12 +1,22 @@
-{ config, pkgs, ... }:
 {
-  # Both local and remote systems must have lz4 installed
-  environment.systemPackages = [ pkgs.lz4 ];
-
+  config,
+  pkgs,
+  ...
+}:
+{
   age.secrets.zfs-remote-backup-ssh-key.rekeyFile = ./ssh-key.age;
 
   services.zfs.autoReplication = {
     enable = true;
+
+    package =
+      let
+        pkgs-master = import (fetchTarball {
+          url = "https://github.com/GaetanLepage/nixpkgs/archive/dde261fe0fb557f98c416bfcdf8bc9c4c69b6241.tar.gz";
+          sha256 = "11kph768mx0mr5pzh9r5bfq2yywapbfdsd329mryyaibwxd0hgq2";
+        }) { inherit (pkgs.stdenv) system; };
+      in
+      pkgs-master.zfs-replicate;
 
     localFilesystem = "tank";
 
