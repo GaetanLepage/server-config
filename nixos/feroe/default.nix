@@ -43,7 +43,7 @@
 
     # Can be ssh-ed with 'rsa_server'
     openssh.authorizedKeys.keys = [
-      (builtins.readFile ../common/zfs/ssh-key-server.pub)
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAkpHHaqWb9Gjixhl53YuqO25VqBIJX7LaaigSr5NDUE"
     ];
   };
 }

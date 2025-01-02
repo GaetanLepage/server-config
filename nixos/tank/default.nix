@@ -13,7 +13,7 @@
     # System
     ./backup.nix
     ./users.nix
-    ./zfs.nix
+    ./zfs
     ./disko.nix
 
     # File sharing
