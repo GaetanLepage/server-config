@@ -63,21 +63,21 @@
         # System configuration
         nixosConfigurations =
           let
-            system = "x86_64-linux";
-
             mkHost =
               hostname:
               nixpkgs.lib.nixosSystem {
-                inherit system;
+                system = "x86_64-linux";
                 specialArgs.inputs = inputs;
                 modules = [ ./nixos/${hostname} ];
               };
+
+            hostnames = [
+              "tank"
+              "feroe"
+              "vps"
+            ];
           in
-          {
-            tank = mkHost "tank";
-            feroe = mkHost "feroe";
-            vps = mkHost "vps";
-          };
+          nixpkgs.lib.genAttrs hostnames mkHost;
       };
 
       perSystem =
