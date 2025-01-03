@@ -1,6 +1,6 @@
 {
   config,
-  pkgs,
+  pkgs-unstable,
   ...
 }:
 {
@@ -9,14 +9,10 @@
   services.zfs.autoReplication = {
     enable = true;
 
-    package =
-      let
-        pkgs-master = import (fetchTarball {
-          url = "https://github.com/GaetanLepage/nixpkgs/archive/dde261fe0fb557f98c416bfcdf8bc9c4c69b6241.tar.gz";
-          sha256 = "11kph768mx0mr5pzh9r5bfq2yywapbfdsd329mryyaibwxd0hgq2";
-        }) { inherit (pkgs.stdenv) system; };
-      in
-      pkgs-master.zfs-replicate;
+    # The lz4 fix cannot be backported to 24.11
+    # TODO: remove when updating to 25.05
+    # https://github.com/NixOS/nixpkgs/pull/370241
+    package = pkgs-unstable.zfs-replicate;
 
     localFilesystem = "tank";
 

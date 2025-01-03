@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11-small";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable-small";
 
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
@@ -63,11 +64,15 @@
         # System configuration
         nixosConfigurations =
           let
+            system = "x86_64-linux";
             mkHost =
               hostname:
               nixpkgs.lib.nixosSystem {
-                system = "x86_64-linux";
-                specialArgs.inputs = inputs;
+                inherit system;
+                specialArgs = {
+                  inputs = inputs;
+                  pkgs-unstable = import inputs.nixpkgs-unstable { inherit system; };
+                };
                 modules = [ ./nixos/${hostname} ];
               };
 
