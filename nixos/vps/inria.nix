@@ -23,7 +23,7 @@
       };
 
       reverseProxies = {
-        domain = {
+        ${domain} = {
           localIp = "10.10.10.7";
           port = 8000;
         };
