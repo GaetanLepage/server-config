@@ -39,6 +39,11 @@ in
         ];
       };
 
+      # GitHub notifications & co
+      "dev@${base_domain}" = {
+        hashedPassword = "$2b$05$WSWCiow5WoKz6KbeYM2kDu9up1bs743gqZlt75K.eIkIvWf7.BUDO";
+      };
+
       "nextcloud@${base_domain}" = {
         hashedPassword = "$2b$05$kM8SVZdLQQcDtKlV4esnnO.Dhs7slPpSn2269fDB4oh6jIDcvWzMy";
       };
