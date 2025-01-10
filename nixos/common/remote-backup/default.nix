@@ -25,7 +25,7 @@ in
   };
 
   services.borgbackup.jobs.backup = {
-    paths = "/var/backup";
+    paths = [ "/var/backup" ];
     encryption = {
       mode = "none";
       passCommand = "cat ${config.age.secrets.borg-backup-passphrase.path}";
