@@ -17,6 +17,8 @@
     ../common/default.nix
   ];
 
+  services.postgresqlBackup.enable = true;
+
   system.stateVersion = "24.05";
 
   networking.hostName = "vps";
