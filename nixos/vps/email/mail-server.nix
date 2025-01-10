@@ -1,10 +1,14 @@
-{ inputs, ... }:
+{ inputs, config, ... }:
 let
   base_domain = "glepage.com";
 in
 {
   imports = [
     inputs.simple-nixos-mailserver.nixosModule
+  ];
+
+  services.borgbackup.jobs.backup.paths = [
+    config.mailserver.mailDirectory
   ];
 
   mailserver = {
