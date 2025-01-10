@@ -32,7 +32,7 @@ in
         #   https://github.com/dani-garcia/vaultwarden/wiki/SMTP-configuration
         SMTP_HOST = "127.0.0.1";
         SMTP_PORT = 25;
-        SMTP_SSL = false;
+        SMTP_SECURITY = "off";
 
         SMTP_FROM = "bitwarden@glepage.com";
         SMTP_FROM_NAME = "glepage.com Bitwarden server";
