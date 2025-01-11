@@ -27,7 +27,7 @@ in
   services.borgbackup.jobs.backup = {
     paths = [ "/var/backup" ];
     encryption = {
-      mode = "none";
+      mode = "repokey";
       passCommand = "cat ${config.age.secrets.borg-backup-passphrase.path}";
     };
     environment.BORG_RSH = BORG_RSH;
