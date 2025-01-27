@@ -1,11 +1,18 @@
+let
+  tensorboardUrl = "tensorboard.glepage.com";
+  tensorboardIp = "10.10.10.4";
+in
 {
+  # DNS record
+  networking.hosts.${tensorboardUrl} = [ tensorboardIp ];
+
   services.caddy =
     let
       domain = "robotlearn.ovh";
     in
     {
       virtualHosts = {
-        "tensorboard.glepage.com".extraConfig = ''
+        ${tensorboardUrl}.extraConfig = ''
           import vpn
           handle @vpn {
 
