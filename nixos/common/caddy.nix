@@ -52,7 +52,6 @@
               ''
                 import vpn
                 reverse_proxy @vpn ${proxyStr}
-                respond "Forbidden" 403
               ''
             else
               "reverse_proxy ${proxyStr}";
