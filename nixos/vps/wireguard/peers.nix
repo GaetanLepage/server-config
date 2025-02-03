@@ -11,8 +11,6 @@
   "hwt8e4sb0IkcrIhe/IBkefZjpa9LcRp5OUoKs569nCY=" = 4;
   # cuda
   "J+STSrQtKJQoUNykoVF3c9ngaVUkMO3FLefQjIX1qBw=" = 5;
-  # chamaeleon
-  "VtmnRPYRg0iKTaC/HE4gQ/PelAhtC/dcsz7bJ5ktMVE=" = 6;
   # alya
   "3QKHdugbpjZj/VnRr1SUpPgTGVvRT2w/U6T6v1wONSw=" = 7;
   # tank

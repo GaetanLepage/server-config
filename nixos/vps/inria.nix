@@ -35,11 +35,6 @@ in
           port = 8000;
         };
 
-        "grafana.${domain}" = {
-          localIp = "10.10.10.6";
-          port = 3000;
-        };
-
         "ollama.${domain}" = {
           localIp = "10.10.10.4"; # auriga
           port = 11434;
