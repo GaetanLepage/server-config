@@ -11,7 +11,7 @@
     ../common/default.nix
 
     # System
-    ./backup.nix
+    ./backup
     ./users.nix
     ./zfs
     ./disko.nix
