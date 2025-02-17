@@ -69,6 +69,7 @@
     tree
     unzip
     wget
+    yt-dlp
   ];
 
   # This value determines the NixOS release from which the default
