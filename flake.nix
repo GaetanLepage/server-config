@@ -118,7 +118,7 @@
                     --fast \
                     --flake .#"$hostname" \
                     --target-host root@"$hostname" \
-                    --build-host root@"$hostname"
+                    --builders ""
                 '';
               }
               {
