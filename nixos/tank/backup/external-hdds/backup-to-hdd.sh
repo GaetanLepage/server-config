@@ -67,7 +67,7 @@ backup_profile() {
     disk_id=$2
     source_dirs=$3
 
-    echo "------------------------"
+    echo "----------------------------------------------------"
     log "BACKUP profile '$profile'\n"
 
     mountpoint="/mnt/hdd_$profile"
