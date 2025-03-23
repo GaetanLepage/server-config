@@ -130,6 +130,10 @@
                   deploy vps
                   deploy feroe
                   deploy tank
+
+                  git add flake.lock
+                  git commit -m "flake.lock: Update"
+                  git push
                 '';
               }
             ];
