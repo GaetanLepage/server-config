@@ -1,8 +1,4 @@
 { config, ... }:
-let
-  domain = "invidious.glepage.com";
-  port = 3000;
-in
 {
   age.secrets.invidious-extra-settings = {
     rekeyFile = ./extra-settings.age;
@@ -18,7 +14,16 @@ in
   };
 
   services = {
-    caddy.reverseProxies."${domain}".port = port;
+    caddy.reverseProxies =
+      let
+        inherit (config.services.invidious)
+          domain
+          port
+          ;
+      in
+      {
+        "${domain}".port = port;
+      };
 
     # Backup database automatically
     postgresqlBackup.enable = true;
@@ -28,8 +33,8 @@ in
 
       # package = (import inputs.nixpkgs {inherit (pkgs) system;}).invidious;
 
-      inherit domain;
-      inherit port;
+      domain = "invidious.glepage.com";
+      port = 3000;
 
       sig-helper.enable = true;
 
@@ -52,7 +57,7 @@ in
         # https://docs.invidious.io/installation/#post-install-configuration
         https_only = true;
         external_port = 443;
-        inherit domain;
+        inherit (config.services.invidious) domain;
         use_pubsub_feeds = true;
         use_innertube_for_captions = true;
 
