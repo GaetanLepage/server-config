@@ -11,7 +11,7 @@ HD_INSTANCE=""
 HD_COOKIE_FILE=$(mktemp)
 
 verify_commands() {
-    if ! command -v grep > /dev/null || ! command -v curl > /dev/null || ! command -v unzip > /dev/null; then
+    if ! command -v grep >/dev/null || ! command -v curl >/dev/null || ! command -v unzip >/dev/null; then
         echo "grep, cURL and unzip are required to be present."
         exit 1
     fi
@@ -74,7 +74,7 @@ export_unzip_userdata() {
             echo "Failed 5 times to export your user data."
             exit 1
         fi
-        export_unzip_userdata $((err_count+1))
+        export_unzip_userdata $((err_count + 1))
     fi
     unzip -q "$zipfile" -d .
     rm "$zipfile"
