@@ -76,9 +76,10 @@ export_unzip_userdata() {
         fi
         export_unzip_userdata $((err_count + 1))
     fi
-    unzip -q "$zipfile" -d .
+    out_dir="notes_export"
+    unzip -q "$zipfile" -d "$out_dir"
     rm "$zipfile"
-    echo "Exported notes into current directory."
+    echo "Exported notes to '$out_dir'."
 }
 
 clean_up() {
