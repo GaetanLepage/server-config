@@ -22,7 +22,7 @@
           ;
       in
       {
-        "${domain}".port = port;
+        ${domain}.port = port;
       };
 
     # Backup database automatically

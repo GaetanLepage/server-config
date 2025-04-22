@@ -14,7 +14,7 @@ in
     enable = true;
 
     virtualHosts = {
-      "${domain_name}".extraConfig = ''
+      ${domain_name}.extraConfig = ''
         handle_path /df {
             redir https://github.com/GaetanLepage/nix-config
         }

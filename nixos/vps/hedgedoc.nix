@@ -6,7 +6,7 @@ let
 in
 {
   services = {
-    caddy.reverseProxies."${domain}".port = port;
+    caddy.reverseProxies.${domain}.port = port;
 
     # Database
     postgresql = {

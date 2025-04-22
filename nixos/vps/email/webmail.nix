@@ -11,7 +11,7 @@
     in
     {
       nginx.enable = lib.mkForce false;
-      caddy.virtualHosts."${hostName}".extraConfig = ''
+      caddy.virtualHosts.${hostName}.extraConfig = ''
         root * ${config.services.roundcube.package}
         file_server
 
