@@ -10,6 +10,8 @@ in
     aliases = [
       "postmaster@${domain}"
       "3iTYog@${domain}"
+      "pub@${domain}"
+
       "gaetan-medium@${domain}"
       "gaetan-twitter-public@${domain}" # @GaetanLepage_
 
