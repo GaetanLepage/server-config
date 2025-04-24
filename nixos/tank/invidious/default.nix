@@ -39,18 +39,18 @@
       sig-helper = {
         enable = true;
 
-        package = pkgs.inv-sig-helper.overrideAttrs (rec {
-          src = pkgs.fetchFromGitHub {
-            owner = "iv-org";
-            repo = "inv_sig_helper";
-            rev = "5d3c7a4574fafe0bc5fbed9e7e33483889832fd4";
-            hash = "sha256-WGh62tjKGe9OD19aq+lP9GfYs5PrGqkeT6VvmtNottQ=";
-          };
-          cargoDeps = pkgs.rustPlatform.fetchCargoVendor {
-            inherit src;
-            hash = "sha256-DnJL7kkcVn5dW3AoPCn829WmkaCjpDZtYUXnpiB857Q=";
-          };
-        });
+        # package = pkgs.inv-sig-helper.overrideAttrs (rec {
+        #   src = pkgs.fetchFromGitHub {
+        #     owner = "iv-org";
+        #     repo = "inv_sig_helper";
+        #     rev = "5d3c7a4574fafe0bc5fbed9e7e33483889832fd4";
+        #     hash = "sha256-WGh62tjKGe9OD19aq+lP9GfYs5PrGqkeT6VvmtNottQ=";
+        #   };
+        #   cargoDeps = pkgs.rustPlatform.fetchCargoVendor {
+        #     inherit src;
+        #     hash = "sha256-DnJL7kkcVn5dW3AoPCn829WmkaCjpDZtYUXnpiB857Q=";
+        #   };
+        # });
       };
 
       extraSettingsFile = config.age.secrets.invidious-extra-settings.path;
