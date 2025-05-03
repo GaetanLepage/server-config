@@ -38,6 +38,13 @@ in
       '';
     };
 
-    reverseProxies."jellyfin.${domain_name}".port = 8096;
+    reverseProxies = {
+      "jellyfin.${domain_name}".port = 8096;
+
+      "cache.${domain_name}" = {
+        localIp = "10.10.10.5";
+        port = 5000;
+      };
+    };
   };
 }
