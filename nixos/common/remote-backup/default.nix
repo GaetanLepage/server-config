@@ -30,7 +30,13 @@ in
       mode = "repokey";
       passCommand = "cat ${config.age.secrets.borg-backup-passphrase.path}";
     };
-    environment.BORG_RSH = BORG_RSH;
+    environment = {
+      BORG_RSH = BORG_RSH;
+
+      # Required by rsync.net since May 2025
+      # They do not support relying on the default 'borg' executable
+      BORG_REMOTE_PATH = "borg14";
+    };
     repo = rsyncRepo;
     compression = "auto,zstd";
     startAt = "daily";
