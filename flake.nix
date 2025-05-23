@@ -2,8 +2,7 @@
   description = "Server configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11-small";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable-small";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05-small";
 
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
@@ -19,7 +18,7 @@
     };
 
     simple-nixos-mailserver = {
-      url = "gitlab:simple-nixos-mailserver/nixos-mailserver/nixos-24.11";
+      url = "gitlab:simple-nixos-mailserver/nixos-mailserver/nixos-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -71,7 +70,6 @@
                 inherit system;
                 specialArgs = {
                   inputs = inputs;
-                  pkgs-unstable = import inputs.nixpkgs-unstable { inherit system; };
                 };
                 modules = [ ./nixos/${hostname} ];
               };

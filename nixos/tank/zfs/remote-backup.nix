@@ -1,6 +1,5 @@
 {
   config,
-  pkgs-unstable,
   ...
 }:
 {
@@ -8,11 +7,6 @@
 
   services.zfs.autoReplication = {
     enable = true;
-
-    # The lz4 fix cannot be backported to 24.11
-    # TODO: remove when updating to 25.05
-    # https://github.com/NixOS/nixpkgs/pull/370241
-    package = pkgs-unstable.zfs-replicate;
 
     localFilesystem = "tank";
 
