@@ -3,7 +3,6 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware.nix
-    ./jellyfin.nix
     ./wireguard
 
     ../common/default.nix
